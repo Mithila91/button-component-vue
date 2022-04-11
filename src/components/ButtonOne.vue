@@ -14,7 +14,7 @@ export default {
   },
   methods: {
     onClick() {
-      this.$emit("btn-click");
+      this.$emit("toggle");
       console.log("I have been clicked");
     },
   },

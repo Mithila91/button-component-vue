@@ -1,27 +1,34 @@
 <template>
   <div class="container">
-    <div></div>
-    <ButtonOne
-      @btn-click="toggleMessage;"
-      text="open one"
-      :color="defaultColor"
-    />
+    <div v-if="showMessage">
+      <Message
+        @toggle="toggleMessage"
+        :heading="heading"
+        :paragraph="paragraph"
+      />
+    </div>
+    <ButtonOne text="open one" :color="defaultColor" />
   </div>
 </template>
 
 <script>
 import ButtonOne from "./components/ButtonOne";
+import Message from "./components/Message";
 export default {
   name: "App",
-  components: { ButtonOne },
+  components: { ButtonOne, Message },
   data() {
     return {
-      showMessage: false,
       defaultColor: "#00ce89",
+      heading: "Show Heading",
+      paragraph: "Show Paragraph",
+      showMessage: false,
     };
   },
   methods: {
-    toggleMessage() {},
+    toggleMessage() {
+      this.showMessage = !this.showMessage;
+    },
   },
 };
 </script>
