@@ -1,6 +1,11 @@
 <template>
   <div class="container">
-    <ButtonOne />
+    <div></div>
+    <ButtonOne
+      @btn-click="toggleMessage;"
+      text="open one"
+      :color="defaultColor"
+    />
   </div>
 </template>
 
@@ -9,6 +14,15 @@ import ButtonOne from "./components/ButtonOne";
 export default {
   name: "App",
   components: { ButtonOne },
+  data() {
+    return {
+      showMessage: false,
+      defaultColor: "#00ce89",
+    };
+  },
+  methods: {
+    toggleMessage() {},
+  },
 };
 </script>
 
@@ -37,7 +51,6 @@ body {
 .btn {
   display: block;
   margin: 20px auto 0;
-  background: #00ce89;
   color: white;
   padding: 10px;
   border: 0;
