@@ -1,13 +1,10 @@
 <template>
   <div class="container">
-    <div v-if="showMessage">
-      <Message
-        @toggle="toggleMessage"
-        :heading="heading"
-        :paragraph="paragraph"
-      />
+    <div v-if="showMessage" @toggle="toggleMessage">
+      <h1>{{ heading }}</h1>
+      <p>{{ paragraph }}</p>
     </div>
-    <ButtonOne text="open one" :color="defaultColor" />
+    <ButtonOne @click="toggleMessage" text="open one" :color="defaultColor" />
   </div>
 </template>
 
@@ -19,10 +16,10 @@ export default {
   components: { ButtonOne, Message },
   data() {
     return {
-      defaultColor: "#00ce89",
       heading: "Show Heading",
       paragraph: "Show Paragraph",
       showMessage: false,
+      defaultColor: "#00ce89",
     };
   },
   methods: {
