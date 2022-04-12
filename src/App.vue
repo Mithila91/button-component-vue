@@ -16,8 +16,8 @@ export default {
   components: { ButtonOne, Message },
   data() {
     return {
-      heading: "Show Heading",
-      paragraph: "Show Paragraph",
+      heading: "Option Api",
+      paragraph: "Button one with option api",
       showMessage: false,
       defaultColor: "#00ce89",
     };
@@ -26,6 +26,9 @@ export default {
     toggleMessage() {
       this.showMessage = !this.showMessage;
     },
+  },
+  mounted() {
+    console.log("component has mounted");
   },
 };
 </script>
@@ -50,17 +53,5 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.btn {
-  display: block;
-  margin: 20px auto 0;
-  color: white;
-  padding: 10px;
-  border: 0;
-  border-radius: 6px;
-  font-size: 16px;
-  cursor: pointer;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 </style>
