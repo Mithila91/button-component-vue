@@ -22,7 +22,7 @@ export default {
 
   methods: {
     onClick() {
-      this.$emit("toggle");
+      this.$emit("btnClick");
       console.log("I have been clicked");
     },
   },
