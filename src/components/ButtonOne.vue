@@ -23,7 +23,7 @@ export default {
   methods: {
     onClick() {
       this.$emit("btnClick");
-      console.log("I have been clicked");
+      //console.log("I have been clicked");
     },
   },
 };

@@ -20,16 +20,22 @@ export default {
       heading: "Option Api",
       paragraph: "Button one with option api",
       showMessage: false,
-      defaultColor: "#00ce89",
+      defaultColor: "#72aee6",
+      btnClicked: 0,
     };
+  },
+  mounted() {
+    console.log("component has mounted");
   },
   methods: {
     toggleMessage() {
       this.showMessage = !this.showMessage;
+
+      this.btnClicked++;
+      if (this.btnClicked === 5) {
+        console.log("button has been clicked five times");
+      }
     },
-  },
-  mounted() {
-    console.log("component has mounted");
   },
 };
 </script>
