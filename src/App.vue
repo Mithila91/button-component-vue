@@ -5,15 +5,18 @@
       <p>{{ paragraph }}</p>
     </div>
     <ButtonOne @btnClick="toggleMessage" :text="text" :color="defaultColor" />
+    <ButtonTwo :textTwo="textTwo" :colorTwo="colorTwo" />
   </div>
 </template>
 
 <script>
+import { ref } from "vue";
 import ButtonOne from "./components/ButtonOne";
+import ButtonTwo from "./components/ButtonTwo";
 
 export default {
   name: "App",
-  components: { ButtonOne },
+  components: { ButtonOne, ButtonTwo },
   data() {
     return {
       text: "open one",
@@ -36,6 +39,13 @@ export default {
         console.log("button has been clicked five times");
       }
     },
+  },
+  setup() {
+    const textTwo = ref("button two");
+    const colorTwo = ref("#8a2424");
+    const isHoveringTwo = ref(false);
+
+    return { textTwo, colorTwo, isHoveringTwo };
   },
 };
 </script>
@@ -60,5 +70,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 }
 </style>
