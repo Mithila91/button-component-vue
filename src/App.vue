@@ -10,10 +10,10 @@
 
 <script>
 import ButtonOne from "./components/ButtonOne";
-import Message from "./components/Message";
+
 export default {
   name: "App",
-  components: { ButtonOne, Message },
+  components: { ButtonOne },
   data() {
     return {
       text: "open one",
