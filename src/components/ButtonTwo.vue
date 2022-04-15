@@ -3,7 +3,7 @@
     @mouseover="isHoveringTwo = true"
     @mouseleave="isHoveringTwo = false"
     :class="{ hovering: isHoveringTwo }"
-    @click="onClick"
+    @click="handleClick"
     class="btn"
     :style="{ background: colorTwo }"
   >
@@ -14,7 +14,14 @@
 <script>
 import { ref } from "vue";
 export default {
-  props: ["textTwo", "colorTwo", "isHoveringTwo"],
+  props: { textTwo: String, colorTwo: String, isHoveringTwo: Boolean },
+
+  setup(props, context) {
+    const handleClick = (e) => {
+      context.emit("btnClickTwo", e.target);
+    };
+    return { handleClick };
+  },
 };
 </script>
 

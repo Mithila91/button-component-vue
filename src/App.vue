@@ -1,16 +1,24 @@
 <template>
   <div class="container">
-    <div v-if="showMessage">
+    <div v-if="showOptionApi">
       <h1>{{ heading }}</h1>
       <p>{{ paragraph }}</p>
     </div>
-    <ButtonOne @btnClick="toggleMessage" :text="text" :color="defaultColor" />
-    <ButtonTwo :textTwo="textTwo" :colorTwo="colorTwo" />
+    <ButtonOne @btnClick="toggleOption" :text="text" :color="color" />
+    <div v-if="showCompositionApi">
+      <h1>{{ headingComp }}</h1>
+      <p>{{ paraComp }}</p>
+    </div>
+    <ButtonTwo
+      @btnClickTwo="toggleComp"
+      :textTwo="textTwo"
+      :colorTwo="colorTwo"
+    />
   </div>
 </template>
 
 <script>
-import { ref } from "vue";
+import { ref, context, onMounted } from "vue";
 import ButtonOne from "./components/ButtonOne";
 import ButtonTwo from "./components/ButtonTwo";
 
@@ -22,17 +30,17 @@ export default {
       text: "open one",
       heading: "Option Api",
       paragraph: "Button one with option api",
-      showMessage: false,
-      defaultColor: "#72aee6",
+      showOptionApi: false,
+      color: "#72aee6",
       btnClicked: 0,
     };
   },
   mounted() {
-    console.log("component has mounted");
+    console.log("component one has mounted");
   },
   methods: {
-    toggleMessage() {
-      this.showMessage = !this.showMessage;
+    toggleOption() {
+      this.showOptionApi = !this.showOptionApi;
 
       this.btnClicked++;
       if (this.btnClicked === 5) {
@@ -45,7 +53,26 @@ export default {
     const colorTwo = ref("#8a2424");
     const isHoveringTwo = ref(false);
 
-    return { textTwo, colorTwo, isHoveringTwo };
+    const showCompositionApi = false;
+    const headingComp = ref("Compostion Api");
+    const paraComp = ref("Button one with option api");
+    const btnTwoClicked = ref(0);
+
+    onMounted(() => console.log("component two has mounted"));
+
+    const toggleComp = () => {
+      console.log(btnTwoClicked);
+    };
+
+    return {
+      textTwo,
+      colorTwo,
+      isHoveringTwo,
+      showCompositionApi,
+      headingComp,
+      paraComp,
+      toggleComp,
+    };
   },
 };
 </script>
