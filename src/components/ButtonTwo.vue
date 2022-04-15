@@ -17,8 +17,8 @@ export default {
   props: { textTwo: String, colorTwo: String, isHoveringTwo: Boolean },
 
   setup(props, context) {
-    const handleClick = (e) => {
-      context.emit("btnClickTwo", e.target);
+    const handleClick = () => {
+      context.emit("btnClickTwo");
     };
     return { handleClick };
   },
