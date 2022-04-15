@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { ref, context, onMounted } from "vue";
+import { ref, context, onMounted, computed, reactive } from "vue";
 import ButtonOne from "./components/ButtonOne";
 import ButtonTwo from "./components/ButtonTwo";
 
@@ -44,34 +44,37 @@ export default {
 
       this.btnClicked++;
       if (this.btnClicked === 5) {
-        console.log("button has been clicked five times");
+        console.log("option api has been clicked five times");
       }
     },
   },
-  setup() {
+  setup(props, context) {
     const textTwo = ref("button two");
     const colorTwo = ref("#8a2424");
-    const isHoveringTwo = ref(false);
 
-    const showCompositionApi = false;
+    const showCompositionApi = ref(false);
     const headingComp = ref("Compostion Api");
-    const paraComp = ref("Button one with option api");
-    const btnTwoClicked = ref(0);
+    const paraComp = ref("button two with composition api");
+    const state = reactive({ btnTwoClicked: ref(0) });
 
     onMounted(() => console.log("component two has mounted"));
 
     const toggleComp = () => {
-      console.log(btnTwoClicked);
+      showCompositionApi.value = !showCompositionApi.value;
+      state.btnTwoClicked++;
+      if (state.btnTwoClicked === 5) {
+        console.log("composition api clicked five times");
+      }
     };
 
     return {
       textTwo,
       colorTwo,
-      isHoveringTwo,
       showCompositionApi,
       headingComp,
       paraComp,
       toggleComp,
+      state,
     };
   },
 };
