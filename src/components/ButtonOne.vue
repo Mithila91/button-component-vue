@@ -29,19 +29,4 @@ export default {
 </script>
 
 <style>
-.btn {
-  display: block;
-  margin: 20px auto 0;
-  color: white;
-  padding: 10px;
-  border: 0;
-  border-radius: 6px;
-  font-size: 16px;
-  cursor: pointer;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-}
-
-.btn.hovering {
-  transform: scale(1.5);
-}
 </style>

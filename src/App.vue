@@ -29,7 +29,7 @@ export default {
     return {
       text: "open one",
       heading: "Option Api",
-      paragraph: "Button one with option api",
+      paragraph: "button one with option api",
       showOptionApi: false,
       color: "#72aee6",
       btnClicked: 0,
@@ -89,6 +89,11 @@ export default {
 }
 body {
   background: #f2f2f2;
+  font-family: "Poppins", sans-serif;
+}
+
+h1 {
+  margin: 20px auto;
 }
 .container {
   max-width: 500px;
@@ -98,8 +103,25 @@ body {
   border-radius: 5px;
   background-color: white;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+}
+
+.btn {
+  display: block;
+  margin: 40px auto 0;
+  color: white;
+  padding: 10px;
+  border: 0;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.btn.hovering {
+  transform: scale(1.5);
 }
 </style>
