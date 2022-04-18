@@ -19,6 +19,7 @@
 
 <script>
 import { ref, context, onMounted, computed, reactive } from "vue";
+import { MotionPlugin } from "@vueuse/motion";
 import ButtonOne from "./components/ButtonOne";
 import ButtonTwo from "./components/ButtonTwo";
 
