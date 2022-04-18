@@ -1,4 +1,6 @@
 # button-component
+Short brief created accordingly to specifications, created for learning purposes. 
+The project was created using Vue 3
 
 ## Project setup
 ```
